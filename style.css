@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --main-bg: hsl(217, 54%, 11%);
+  --card-bg: hsl(216, 50%, 16%);
+  --line-clr: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+  color: var(--soft-blue);
+  background-color: var(--main-bg);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+}
+
+body {
+  max-width: 1280px;
+  margin-inline: auto;
+  min-width: 320px;
+  height: 100vh;
+  min-height: 768px;
+  display: grid;
+  place-items: center;
+}
+
+main {
+  background-color: var(--card-bg);
+  margin: 1.25em;
+  padding: 1.25em;
+  border-radius: 1em;
+  box-shadow: 0 1em 3em #00000033;
+}
+
+.img__equilibrium {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0.8em;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-bottom: calc((1 / 1) * 100%);
+  isolation: isolate;
+}
+
+.img__equilibrium img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.img__equilibrium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--cyan);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  transition-delay: 0.2s;
+  z-index: 2;
+}
+
+.img__equilibrium::after {
+  content: url(./images/icon-view.svg);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  transition-delay: 0.2s;
+  z-index: 2;
+}
+
+.img__equilibrium:is(:hover, :focus)::before {
+  opacity: 0.5;
+}
+
+.img__equilibrium:is(:hover, :focus)::after {
+  opacity: 1;
+}
+
+.img__equilibrium + a[href] {
+  color: var(--white);
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.375em;
+  margin: 0.5em 0;
+}
+
+.img__equilibrium + a[href]:active {
+  color: var(--cyan);
+}
+
+main ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.875em 0;
+}
+
+main ul li {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0.5em;
+}
+
+main ul li:first-child {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+main hr {
+  all: unset;
+  display: block;
+  border-top: 1px solid var(--line-clr);
+  margin: 1em 0;
+}
+
+main div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1em;
+}
+
+.avatar__jules {
+  max-width: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+}
+
+main div p a[href] {
+  color: var(--white);
+  text-decoration: none;
+}
+
+main div p a[href]:active {
+  color: var(--cyan);
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    max-width: 27%;
+  }
+
+  a[href] + p {
+    font-size: 1.125em;
+  }
+}
